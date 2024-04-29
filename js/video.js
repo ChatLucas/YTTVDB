@@ -17,5 +17,14 @@ function loadVideo() {
         }
     })
 
+    let name = "";
+    if (curFranchise.localName && curFranchise.localName[lang]) {
+        name = curFranchise.localName[lang];
+    } else {
+        name = curFranchise.name;
+    }
+    document.getElementById("top menu").innerHTML = "<a href=catalogue.html?lang=" + lang + ">Catalogue </a>";
+    document.getElementById("top menu").innerHTML += "<a href=franchise.html?lang=" + lang + "&franchise=" + franchise + ">" + name + "</a>";
+
     document.getElementById("episode").innerHTML = "<iframe allow=\"fullscreen;\" width=\"720\" height=\"540\" src=\"https://www.youtube.com/embed/" + curEpisode.ytids[lang] + "\"> </iframe>";
 }

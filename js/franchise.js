@@ -13,6 +13,8 @@ function loadFranchise() {
         }
     })
 
+    document.getElementById("top menu").innerHTML = "<a href=catalogue.html?lang=" + lang + ">Catalogue</a>";
+
     document.getElementById("list").innerHTML = "";
     curFranchise.seasons.forEach((season) => {
         if (season.available.includes(lang)) {
