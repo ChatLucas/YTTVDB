@@ -4,6 +4,9 @@ function loadFranchise() {
     let lang = urlParams.get('lang');
     let franchise = urlParams.get('franchise');
     var curFranchise = Catalogue.find((element) => element.id === franchise)
+    var html = "";
+    var htmlSeason = "";
+    var htmlEpisode = "";
 
     document.getElementById("lang").innerHTML = "";
     Languages.forEach((item) => {
@@ -13,18 +16,19 @@ function loadFranchise() {
         }
     })
 
-    document.getElementById("top menu").innerHTML = "<a href=catalogue.html?lang=" + lang + ">Catalogue</a>";
+    document.getElementById("top_menu").innerHTML = "<a href=catalogue.html?lang=" + lang + ">Catalogue</a>";
 
-    document.getElementById("list").innerHTML = "";
     curFranchise.seasons.forEach((season) => {
         if (season.available.includes(lang)) {
+            htmlSeason = "";
+            htmlEpisode = "";
             let name = "";
             if (season.localName && season.localName[lang]) {
                 name = season.localName[lang];
             } else {
                 name = season.name;
             }
-            document.getElementById("list").innerHTML += "<h1>" + name + "</h1>";
+            htmlSeason += "<h1>" + name + "</h1>";
             season.episodes.forEach((episode) => {
                 if (episode.ytids[lang] != undefined) {
                     console.log("Test");
@@ -35,9 +39,12 @@ function loadFranchise() {
                         name = episode.name;
                     }
                     var hyperlink = "video.html?lang=" + lang + "&franchise=" + curFranchise.id + "&season=" + season.id + "&episode=" + episode.id;
-                    document.getElementById("list").innerHTML += "<li><a href=" + hyperlink + ">" + name + "</a></li>";
+                    htmlEpisode += "<li><a href=" + hyperlink + ">" + name + "</a></li>";
                 }
             })
+            htmlSeason += "<ul>" + htmlEpisode + "</ul>";
         }
     })
+    html += htmlSeason
+    document.getElementById("list").innerHTML = html;
 }

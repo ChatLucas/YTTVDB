@@ -2,6 +2,8 @@ function loadCatalogue() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let lang = urlParams.get('lang');
+    var html = "";
+    var htmlFranchise = "";
 
     document.getElementById("lang").innerHTML = "";
     Languages.forEach((item) => {
@@ -19,7 +21,9 @@ function loadCatalogue() {
                 name = item.name;
             }
             var hyperlink = "franchise.html?lang=" + lang + "&franchise=" + item.id;
-            document.getElementById("list").innerHTML += "<li><a href=" + hyperlink + ">" + name + "</a></li>";
+            htmlFranchise += "<li><a href=" + hyperlink + ">" + name + "</a></li>";
         }
     })
+    html += "<ul>" + htmlFranchise + "</ul>";
+    document.getElementById("list").innerHTML = html;
 }
