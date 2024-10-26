@@ -15,13 +15,25 @@ function on_load() {
 
 function select_language(selected) {
     if (db_languages[selected] == undefined) {
-        document.getElementById("language-display").innerHTML = "English"
-        window.history.replaceState('', '', updateURLParameter(window.location.href, "lang", "en"))
-        return
+        selected = 'en'
     }
 
     document.getElementById("language-display").innerHTML = db_languages[selected].name
     window.history.replaceState('', '', updateURLParameter(window.location.href, "lang", db_languages[selected].short))
+
+    
+
+    var innerHTML = ""
+
+    for (show of Object.values(db_catalogue)) {
+        if (show.available.includes(selected)) {
+            innerHTML += "<li class=\"list-group-item\">"
+            innerHTML += show.name
+            innerHTML += "</li>"
+        }
+    }
+
+    document.getElementById("main-list").innerHTML = innerHTML
 }
 
 /**
