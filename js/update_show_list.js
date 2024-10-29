@@ -3,9 +3,11 @@ function update_content(selected) {
 
     for (show of db_catalogue) {
         if (show.available.includes(selected)) {
-            innerHTML += "<li class=\"list-group-item\">"
+            innerHTML += "<a href=\"catalogue/"
+            innerHTML += show.id
+            innerHTML += ".html\"class=\"list-group-item list-group-item-action\">"
             innerHTML += show.name
-            innerHTML += "</li>"
+            innerHTML += "</a>"
         }
     }
 
