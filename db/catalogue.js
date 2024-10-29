@@ -1,5 +1,5 @@
-let db_catalogue = {
-    code_lyoko: {name: "Code Lyoko", available: ['en', 'fr']},
-    code_lyoko_evolution: {name: "Code Lyoko: Evolution", available: ['fr']},
-    tottaly_spies: {name: "Totally Spies", available: ['en', 'fr']}
-}
+let db_catalogue = [
+    {name: "Code Lyoko",            available: ['en', 'fr'],    id: "code_lyoko"},
+    {name: "Code Lyoko: Evolution", available: ['fr'],          id: "code_lyoko_evolution"},
+    {name: "Totally Spies",         available: ['en', 'fr'],    id: "tottaly_spies"}
+]
