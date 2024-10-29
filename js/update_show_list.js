@@ -5,7 +5,9 @@ function update_content(selected) {
         if (show.available.includes(selected)) {
             innerHTML += "<a href=\"catalogue/"
             innerHTML += show.id
-            innerHTML += ".html\"class=\"list-group-item list-group-item-action\">"
+            innerHTML += ".html?lang="
+            innerHTML += selected
+            innerHTML += "\"class=\"list-group-item list-group-item-action\">"
             innerHTML += show.name
             innerHTML += "</a>"
         }
