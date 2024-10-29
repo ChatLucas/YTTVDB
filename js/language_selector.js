@@ -21,17 +21,7 @@ function select_language(selected) {
     document.getElementById("language-display").innerHTML = db_languages[selected].name
     window.history.replaceState('', '', updateURLParameter(window.location.href, "lang", db_languages[selected].short))
 
-    var innerHTML = ""
-
-    for (show of db_catalogue) {
-        if (show.available.includes(selected)) {
-            innerHTML += "<li class=\"list-group-item\">"
-            innerHTML += show.name
-            innerHTML += "</li>"
-        }
-    }
-
-    document.getElementById("main-list").innerHTML = innerHTML
+    update_content(selected)
 }
 
 /**
