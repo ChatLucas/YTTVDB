@@ -1,18 +1,3 @@
-function on_load() {
-    var innerHTML = ""
-    for (lang of Object.values(db_languages)) {
-        innerHTML += "<li><a class=\"dropdown-item\" onclick=\"select_language('"
-        innerHTML += lang.short
-        innerHTML += "')\">"
-        innerHTML += lang.name
-        innerHTML += "</a></li>"
-    }
-    document.getElementById("language-list").innerHTML = innerHTML
-
-    const parameter = new URLSearchParams(document.location.search).get('lang')
-    select_language(parameter)
-}
-
 function select_language(selected) {
     if (db_languages[selected] == undefined) {
         selected = 'en'
