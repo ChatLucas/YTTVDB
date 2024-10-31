@@ -47,7 +47,7 @@ function update_season_name(season_id) {
     var season_name = ""
 
     for (season of db_season_list) {
-        if (season.id == season_id) season_name = season.name
+        if (season.id == season_id) season_name = get_name(season)
     }
 
     document.getElementById("season-name").innerHTML = season_name
