@@ -8,7 +8,7 @@ function update_content(selected) {
             innerHTML += ".html?lang="
             innerHTML += selected
             innerHTML += "\"class=\"list-group-item list-group-item-action\">"
-            innerHTML += show.name
+            innerHTML += get_name(show)
             innerHTML += "</a>"
         }
     }
