@@ -8,7 +8,7 @@ function update_content(selected) {
     }
 
     if (season_available > 1) {
-        innerHTML += "<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
+        innerHTML += "<button id=\"season-name\" class=\"btn btn-secondary dropdown-toggle\" type=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">"
         innerHTML += "    Dropdown button"
         innerHTML += "</button>"
         innerHTML += "<ul class=\"dropdown-menu\">"
@@ -22,9 +22,11 @@ function update_content(selected) {
             }
         }
         innerHTML += "</ul>"
+
+        document.getElementById("season-selector").innerHTML = innerHTML
+
+        update_episode_list(db_season_list[0].id)
     }
-    
-    document.getElementById("season-selector").innerHTML = innerHTML
 }
 
 function update_episode_list(season_id) {
@@ -40,4 +42,12 @@ function update_episode_list(season_id) {
     }
 
     document.getElementById("main-list").innerHTML = innerHTML
+
+    var season_name = ""
+
+    for (season of db_season_list) {
+        if (season.id == season_id) season_name = season.name
+    }
+
+    document.getElementById("season-name").innerHTML = season_name
 }
