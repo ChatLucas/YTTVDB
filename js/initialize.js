@@ -3,7 +3,7 @@ function on_load() {
 
     innerHTML += "<nav class=\"navbar navbar-expand-lg bg-body-tertiary\">"
     innerHTML += "    <div class=\"container-fluid\">"
-    innerHTML += "        <a class=\"navbar-brand\">Home</a>"
+    innerHTML += "        <a href=\"https://ChatLucas.github.io/TYYVDB\" class=\"navbar-brand\">Home</a>"
     innerHTML += "        <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavDropdown\""
     innerHTML += "            aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">"
     innerHTML += "            <span class=\"navbar-toggler-icon\"></span>"
